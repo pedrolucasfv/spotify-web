@@ -5,7 +5,7 @@ export default {
   title: 'Menu',
   component: Menu,
   args: {
-    playlists: ['raça negra', 'xupetinha para estudar', 'ela não é o tipo']
+    playlists: ['raça negra', 'playlist para estudar', 'músicas para socorro']
   }
 } as Meta
 
