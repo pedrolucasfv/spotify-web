@@ -1,9 +1,14 @@
 import { Story, Meta } from '@storybook/react'
-import Player from '.'
+import Player, { PlayerProps } from '.'
 
 export default {
   title: 'Player',
-  component: Player
+  component: Player,
+  args: {
+    image: '/img/flag-germany.png',
+    currentSongName: 'Racismo é burrice',
+    currentSingers: ['Gabriel Pensador', 'Pedro Lucas']
+  }
 } as Meta
 
-export const Default: Story = () => <Player />
+export const Default: Story<PlayerProps> = (args) => <Player {...args} />

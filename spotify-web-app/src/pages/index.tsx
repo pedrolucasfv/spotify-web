@@ -1,5 +1,5 @@
-import Player from 'components/Player'
+import ConnectApi from 'components/ConnectApi'
 
 export default function Home() {
-  return <Player />
+  return <ConnectApi />
 }

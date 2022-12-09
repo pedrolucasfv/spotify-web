@@ -2694,6 +2694,14 @@
     resolve-from "^5.0.0"
     store2 "^2.12.0"
 
+"@styled-icons/foundation@^10.46.0":
+  version "10.46.0"
+  resolved "https://registry.yarnpkg.com/@styled-icons/foundation/-/foundation-10.46.0.tgz#f68eaad4b404a88b7aaf9ab04e07d70cf5abcda9"
+  integrity sha512-RZqNVxStjvboGg6+X1By9pE0j7FuzUkfgbu9SgOkSzMrHTvnTOu0JiQ7nNw+CY46rXhT8JTwRCgk2OLTk+anGA==
+  dependencies:
+    "@babel/runtime" "^7.19.0"
+    "@styled-icons/styled-icon" "^10.7.0"
+
 "@styled-icons/ionicons-solid@^10.46.0":
   version "10.46.0"
   resolved "https://registry.yarnpkg.com/@styled-icons/ionicons-solid/-/ionicons-solid-10.46.0.tgz#57909df67c7cdb710623fc9a58c20732f3520f81"
