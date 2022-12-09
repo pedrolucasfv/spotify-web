@@ -4,6 +4,8 @@ import * as S from './styles'
 import { Search } from '@styled-icons/ionicons-solid/Search'
 import { Library } from '@styled-icons/ionicons-solid/Library'
 import { Home } from '@styled-icons/foundation/Home'
+import { Add } from '@styled-icons/ionicons-solid/Add'
+import { Heart } from '@styled-icons/ionicons-solid/Heart'
 
 export type MenuProps = {
   playlists: string[]
@@ -25,11 +27,15 @@ const Menu = ({ playlists }: MenuProps) => (
       <S.Text>Sua Biblioteca</S.Text>
     </S.Library>
     <S.CreatePlaylist>
-      <Search />
+      <S.IconCreatePlaylist>
+        <Add />
+      </S.IconCreatePlaylist>
       <S.Text>Criar playlist</S.Text>
     </S.CreatePlaylist>
     <S.MusicLiked>
-      <Search />
+      <S.IconMusicLiked>
+        <Heart />
+      </S.IconMusicLiked>
       <S.Text>Músicas Curtidas</S.Text>
     </S.MusicLiked>
     <S.Playlists>

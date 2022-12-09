@@ -48,4 +48,7 @@ export const Album = styled.div`
 export const AddData = styled.div`
   flex-grow: 1;
 `
-export const Duration = styled.div``
+export const Duration = styled.div`
+  background: linear-gradient();
+  justify-content: 
+`

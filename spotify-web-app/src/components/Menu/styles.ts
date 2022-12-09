@@ -1,14 +1,33 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const styledModifiers = {
+  commum: () => css`
+    display: flex;
+    align-items: center;
+    svg {
+      height: 3rem;
+    }
+  `,
+  marginSVG: () => css`
+    svg {
+      margin-right: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  `,
+  mouse: () => css`
+    cursor: pointer;
+    :hover {
+      color: white;
+    }
+  `
+}
 
 export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   color: darkgray;
   background-color: black;
-  svg {
-    margin-right: 1.5rem;
-    margin-bottom: 1rem;
-  }
+
   padding: 2rem;
 `
 export const Logo = styled.div`
@@ -28,42 +47,68 @@ export const Text = styled.h2`
 `
 
 export const Home = styled.div`
-  display: flex;
-  align-items: center;
-  svg {
-    height: 3rem;
-  }
-`
-export const Search = styled.div`
-  display: flex;
-  align-items: center;
-  svg {
-    height: 3rem;
-  }
-`
-export const Library = styled.div`
-  display: flex;
-  align-items: center;
-  svg {
-    height: 3rem;
-  }
+  ${styledModifiers.commum()}
+  ${styledModifiers.marginSVG()}
+  ${styledModifiers.mouse()}
 `
 
-export const CreatePlaylist = styled.div`
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  svg {
-    height: 3rem;
-  }
+export const Search = styled.div`
+  ${styledModifiers.commum()}
+  ${styledModifiers.marginSVG()}
+  ${styledModifiers.mouse()}
+`
+export const Library = styled.div`
+  ${styledModifiers.commum()}
+  ${styledModifiers.marginSVG()}
+  ${styledModifiers.mouse()}
 `
 
 export const MusicLiked = styled.div`
-  display: flex;
-  align-items: center;
+  ${styledModifiers.commum()}
+  ${styledModifiers.mouse()}
+`
+export const IconMusicLiked = styled.div`
+  position: relative;
+  background-image: linear-gradient(
+    to right bottom,
+    #0c116f,
+    #1e2d80,
+    #324690,
+    #485f9e,
+    #6178aa
+  );
+  height: 3rem;
+  width: 3rem;
   svg {
-    height: 3rem;
+    position: absolute;
+    height: 1.7rem;
+    left: 23%;
+    top: 25%;
   }
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+`
+export const CreatePlaylist = styled.div`
+  margin-top: 2rem;
+  ${styledModifiers.commum()}
+  ${styledModifiers.mouse()}
+`
+
+export const IconCreatePlaylist = styled.div`
+  position: relative;
+  background-color: #aeafd1;
+  height: 3rem;
+  width: 3rem;
+  svg {
+    color: rgb(35, 35, 35);
+    position: absolute;
+    height: 2rem;
+    left: 18%;
+    top: 20%;
+  }
+
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
 `
 
 export const Playlists = styled.div`
@@ -74,4 +119,5 @@ export const Playlists = styled.div`
 export const TextPlaylist = styled.h2`
   font-weight: 400;
   margin-top: 0.7rem;
+  ${styledModifiers.mouse()}
 `
