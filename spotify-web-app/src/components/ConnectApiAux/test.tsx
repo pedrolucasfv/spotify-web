@@ -6,7 +6,9 @@ describe('<ConnectApiAux />', () => {
   it('should render the heading', () => {
     const { container } = render(<ConnectApiAux />)
 
-    expect(screen.getByRole('heading', { name: /ConnectApiAux/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /ConnectApiAux/i })
+    ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
   })

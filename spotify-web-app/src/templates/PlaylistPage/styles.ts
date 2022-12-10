@@ -8,9 +8,7 @@ export const Wrapper = styled.main`
 export const Menu = styled.div`
   grid-row: 1;
 `
-export const Playlist = styled.div`
-    
-`
+export const Playlist = styled.div``
 export const Player = styled.div`
   grid-row: 3;
   grid-column: 1/3;

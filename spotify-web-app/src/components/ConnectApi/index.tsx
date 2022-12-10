@@ -10,7 +10,7 @@ class ConnectApi extends React.Component {
   }
 
   getHashParams() {
-    let hashParams = {}
+    const hashParams = {}
     let e,
       r = /([^&;=]+)=?([^&;]*)/g,
       q = window.location.hash.substring(1)

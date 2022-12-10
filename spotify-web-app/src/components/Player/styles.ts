@@ -28,9 +28,7 @@ export const Image = styled.div<ImageProps>`
 export const Singers = styled.div`
   margin-right: 1rem;
 `
-export const SingerContent = styled.div`
-  display: flex;
-`
+
 export const SongContent = styled.div`
   margin-left: 1rem;
 `

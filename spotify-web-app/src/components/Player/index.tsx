@@ -11,22 +11,24 @@ import { VolumeHigh } from '@styled-icons/ionicons-solid/VolumeHigh'
 export type PlayerProps = {
   image: string
   currentSongName: string
-  currentSingers: string[]
+  currentSingers: string
+  isPlay: boolean
 }
 
-const Player = ({ image, currentSongName, currentSingers }: PlayerProps) => {
-  const [isPlay, setIsPlay] = useState(false)
+const Player = ({
+  image,
+  currentSongName,
+  currentSingers,
+  isPlay
+}: PlayerProps) => {
+  const [isPlaying, setIsPlay] = useState(isPlay)
   return (
     <S.Wrapper>
       <S.ContentLeft>
         <S.Image src={image} />
         <S.SongContent>
           <S.SongName>{currentSongName}</S.SongName>
-          <S.SingerContent>
-            {currentSingers.map((resp) => {
-              return <S.Singers key={resp}>{resp} |</S.Singers>
-            })}
-          </S.SingerContent>
+          <S.Singers>{currentSingers} </S.Singers>
         </S.SongContent>
       </S.ContentLeft>
       <S.ContentMid>
@@ -34,9 +36,9 @@ const Player = ({ image, currentSongName, currentSingers }: PlayerProps) => {
           <Shuffle />
           <PlaySkipBack />
           {isPlay ? (
-            <PauseCircle onClick={() => setIsPlay(!isPlay)} />
+            <PauseCircle onClick={() => setIsPlay(!isPlaying)} />
           ) : (
-            <PlayCircle onClick={() => setIsPlay(!isPlay)} />
+            <PlayCircle onClick={() => setIsPlay(!isPlaying)} />
           )}
           <PlaySkipForward />
           <Repeat />

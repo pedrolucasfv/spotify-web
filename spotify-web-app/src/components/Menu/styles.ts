@@ -28,7 +28,7 @@ export const Wrapper = styled.main`
   color: darkgray;
   background-color: black;
   height: 100%;
-  
+
   padding: 2rem;
 `
 export const Logo = styled.div`

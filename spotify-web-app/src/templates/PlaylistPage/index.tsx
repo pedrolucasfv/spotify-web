@@ -1,21 +1,19 @@
 import Menu from 'components/Menu'
 import Player from 'components/Player'
 import Playlist from 'components/Playlist'
-import { SongsProps } from 'components/Song'
 import { useEffect, useState } from 'react'
 import * as S from './styles'
 
 type NowPlayingSong = {
   album: string
   albumImageUrl: string
-  article: string
+  artist: string
   isPlaying: boolean
   songUrl: string
   title: string
 }
 
 const PlaylistPage = () => {
-  
   const songMock = [
     {
       songName: 'Deixe me ir - Acústico',
@@ -74,7 +72,6 @@ const PlaylistPage = () => {
     }
     getData()
   }, [])
-  console.log(song)
 
   return (
     <S.Wrapper>
@@ -91,11 +88,21 @@ const PlaylistPage = () => {
         <Playlist songs={songMock} />
       </S.Playlist>
       <S.Player>
-        <Player
-          image="/img/flag-germany.png"
-          currentSongName="Racismo é burrice"
-          currentSingers={['Gabriel Pensador', 'Pedro Lucas']}
-        />
+        {song ? (
+          <Player
+            image={song.albumImageUrl}
+            currentSongName={song.title}
+            currentSingers={song.artist}
+            isPlay={song.isPlaying}
+          />
+        ) : (
+          <Player
+            image="/img/flag-germany.png"
+            currentSongName="Racismo é burrice"
+            currentSingers="Gabriel pensador, Pedro Lucas"
+            isPlay={false}
+          />
+        )}
       </S.Player>
     </S.Wrapper>
   )

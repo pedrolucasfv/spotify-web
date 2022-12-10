@@ -4,7 +4,6 @@ import * as S from './styles'
 
 export type PlaylistProps = {
   songs: SongsProps[]
-  
 }
 
 const Playlist = ({ songs }: PlaylistProps) => (

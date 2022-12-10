@@ -7,7 +7,7 @@ export default {
   args: {
     image: '/img/flag-germany.png',
     currentSongName: 'Racismo é burrice',
-    currentSingers: ['Gabriel Pensador', 'Pedro Lucas']
+    currentSingers: 'Gabriel Pensador, Pedro Lucas'
   }
 } as Meta
 
