@@ -4,6 +4,7 @@ export const Wrapper = styled.main`
   font-size: 1.5rem;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  height: 100%;
 `
 
 export const Number = styled.div`

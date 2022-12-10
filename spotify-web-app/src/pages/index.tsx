@@ -1,5 +1,5 @@
-import ConnectApi from 'components/ConnectApi'
+import PlaylistPage from 'templates/PlaylistPage'
 
 export default function Home() {
-  return <ConnectApi />
+  return <PlaylistPage />
 }

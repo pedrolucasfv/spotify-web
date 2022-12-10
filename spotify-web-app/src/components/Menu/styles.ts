@@ -27,7 +27,8 @@ export const Wrapper = styled.main`
   flex-direction: column;
   color: darkgray;
   background-color: black;
-
+  height: 100%;
+  
   padding: 2rem;
 `
 export const Logo = styled.div`

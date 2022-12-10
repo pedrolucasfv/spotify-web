@@ -5,7 +5,6 @@ export const Wrapper = styled.main`
   align-items: center;
   justify-content: space-between;
   font-size: 1.5rem;
-  
 `
 
 export const Number = styled.div`
@@ -50,5 +49,4 @@ export const AddData = styled.div`
 `
 export const Duration = styled.div`
   background: linear-gradient();
-  justify-content: 
 `
