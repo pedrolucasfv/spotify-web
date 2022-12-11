@@ -13,7 +13,12 @@ type NowPlayingSong = {
   title: string
 }
 
+type PlaylistTypes = {
+  title: string
+}
+
 const PlaylistPage = () => {
+  // Só UMA MOCK PARA ME AJUDAR A TER CONTEUDO ATÉ CONECTAR NA API
   const songMock = [
     {
       songName: 'Deixe me ir - Acústico',
@@ -61,8 +66,10 @@ const PlaylistPage = () => {
       imgAlbum: '/img/flag-germany.png'
     }
   ]
+  //FUNÇÃO PARA TENTAR COLOCAR AS PLAYLISTS NO MENU
 
   const [song, setSong] = useState<NowPlayingSong>()
+  const [playlists, setPlaylists] = useState<PlaylistTypes>()
 
   useEffect(() => {
     async function getData() {
@@ -70,7 +77,17 @@ const PlaylistPage = () => {
       const data: NowPlayingSong = await response.json()
       setSong(data)
     }
+
     getData()
+  }, [])
+
+  useEffect(() => {
+    async function getPlaylists() {
+      const response = await fetch('/api/user-playlist')
+      const dados: PlaylistTypes = await response.json()
+      setPlaylists(dados)
+    }
+    getPlaylists()
   }, [])
 
   return (
@@ -84,6 +101,7 @@ const PlaylistPage = () => {
           ]}
         />
       </S.Menu>
+      {playlists}
       <S.Playlist>
         <Playlist songs={songMock} />
       </S.Playlist>

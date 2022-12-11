@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const response = await getNowPlaying()
-  console.log(`response: ${response.status}`)
+  console.log(`response now-playing: ${response.status}`)
   if (response.status == 204 || response.status > 400) {
     return res.status(200).json({ isPlaying: false })
   }
@@ -14,7 +14,6 @@ export default async function handler(
   if (song.item == null) {
     return res.status(200).json({ isPlaying: false })
   }
-
   const isPlaying = song.is_playing
   const title = song.item.name
   const artist = song.item.artists.map((_artist) => _artist.name).join(', ')
