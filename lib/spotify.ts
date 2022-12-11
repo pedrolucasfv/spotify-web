@@ -11,9 +11,6 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
-const START_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
-const PAUSE_ENDPOINT = `https://api.spotify.com/v1/me/player/pause`
-
 const getAcessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
@@ -47,18 +44,11 @@ export const getUserPlaylists = async (endpoint) => {
   })
 }
 
-export const setResume = async () => {
-  const { access_token } = await getAcessToken()
-  return fetch(START_ENDPOINT, {
-    headers: {
-      Authorization: `Bearer ${access_token}`
-    }
-  })
-}
 
-export const setPause = async () => {
+
+export const getPlaylist = async (endpoint) => {
   const { access_token } = await getAcessToken()
-  return fetch(PAUSE_ENDPOINT, {
+  return fetch(endpoint, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }

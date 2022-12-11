@@ -13,11 +13,18 @@ type NowPlayingSong = {
   title: string
 }
 
-type PlaylistTypes = {
+type UserPlaylistTypes = {
   title: string[]
   id: string[]
 }
 
+type PlaylistTypes = {
+  img: string
+  name: string
+  creator: string
+  songNumber: number
+  likes: number
+}
 const PlaylistPage = () => {
   // Só UMA MOCK PARA ME AJUDAR A TER CONTEUDO ATÉ CONECTAR NA API
   const songMock = [
@@ -70,8 +77,17 @@ const PlaylistPage = () => {
   //FUNÇÃO PARA TENTAR COLOCAR AS PLAYLISTS NO MENU
 
   const [song, setSong] = useState<NowPlayingSong>()
-  const [playlists, setPlaylists] = useState<PlaylistTypes>({
-    title: ['', '']
+  const [playlists, setPlaylists] = useState<UserPlaylistTypes>({
+    title: ['', ''],
+    id: ['', '']
+  })
+  //const [playlistId, setPlaylistId] = useState('')
+  const [playlistSelected, setPlaylistSelected] = useState<PlaylistTypes>({
+    name: 'kakaka',
+    img: '',
+    creator: 'tuktuks',
+    songNumber: 0,
+    likes: 5
   })
 
   useEffect(() => {
@@ -80,17 +96,23 @@ const PlaylistPage = () => {
       const data: NowPlayingSong = await response.json()
       setSong(data)
     }
-
+    async function getPlaylists() {
+      const response = await fetch('/api/user-playlist')
+      const dados: UserPlaylistTypes = await response.json()
+      setPlaylists(dados)
+    }
     getData()
+    getPlaylists()
   }, [])
 
   useEffect(() => {
-    async function getPlaylists() {
-      const response = await fetch('/api/user-playlist')
-      const dados: PlaylistTypes = await response.json()
-      setPlaylists(dados)
+    async function getData() {
+      const response = await fetch('/api/playlist')
+      const data: PlaylistTypes = await response.json()
+      setPlaylistSelected(data)
     }
-    getPlaylists()
+
+    getData()
   }, [])
 
   return (
@@ -99,7 +121,7 @@ const PlaylistPage = () => {
         <Menu playlists={playlists.title} />
       </S.Menu>
       <S.Playlist>
-        <Playlist songs={songMock} />
+        <Playlist songs={songMock} playlistInfo={playlistSelected} />
       </S.Playlist>
       <S.Player>
         {song ? (
