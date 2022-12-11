@@ -24,7 +24,6 @@ export default async function handler(
   const title = playlist.items.map((_playlist) => _playlist.name)
   const id = playlist.items.map((_playlist) => _playlist.id)
 
-  console.log(id)
   //retorna a variavel
   return res.status(200).json({
     title,

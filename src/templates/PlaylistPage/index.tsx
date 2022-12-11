@@ -1,6 +1,7 @@
 import Menu from 'components/Menu'
 import Player from 'components/Player'
 import Playlist from 'components/Playlist'
+import { SongProps } from 'components/Song'
 import { useEffect, useState } from 'react'
 import * as S from './styles'
 
@@ -24,56 +25,9 @@ type PlaylistTypes = {
   creator: string
   songNumber: number
   likes: number
+  songs: SongProps[]
 }
 const PlaylistPage = () => {
-  // Só UMA MOCK PARA ME AJUDAR A TER CONTEUDO ATÉ CONECTAR NA API
-  const songMock = [
-    {
-      songName: 'Deixe me ir - Acústico',
-      addData: '19 de set. de 2019',
-      album: 'Deixe me ir (Acústico)',
-      duration: '3:33',
-      singers: ['1kilo', 'Knust', 'Baviera'],
-      number: 1,
-      imgAlbum: '/img/flag-germany.png'
-    },
-    {
-      songName: 'Contexto',
-      addData: '19 de set. de 2020',
-      album: 'PLANET HEMP',
-      duration: '4:55',
-      singers: ['MARCELO D2', 'B-Negão'],
-      number: 2,
-      imgAlbum: '/img/flag-germany.png'
-    },
-    {
-      songName: 'Contexto',
-      addData: '19 de set. de 2020',
-      album: 'PLANET HEMP',
-      duration: '4:55',
-      singers: ['MARCELO D2', 'B-Negão'],
-      number: 3,
-      imgAlbum: '/img/flag-germany.png'
-    },
-    {
-      songName: 'John Cage - Edit',
-      addData: '08 de dez. de 2022',
-      album: 'John Cage',
-      duration: '4:17',
-      singers: ['Ross from Friends'],
-      number: 4,
-      imgAlbum: '/img/flag-germany.png'
-    },
-    {
-      songName: "What's a Girl to Do",
-      addData: '19 de set. de 2020',
-      album: 'A Girl Between Two Worlds',
-      duration: '7:26',
-      singers: ['Fatima Yamaha'],
-      number: 5,
-      imgAlbum: '/img/flag-germany.png'
-    }
-  ]
   //FUNÇÃO PARA TENTAR COLOCAR AS PLAYLISTS NO MENU
 
   const [song, setSong] = useState<NowPlayingSong>()
@@ -87,7 +41,18 @@ const PlaylistPage = () => {
     img: '',
     creator: 'tuktuks',
     songNumber: 0,
-    likes: 5
+    likes: 5,
+    songs: [
+      {
+        songName: '',
+        singers: '',
+        album: '',
+        addData: '',
+        duration: 0,
+        number: 0,
+        imgAlbum: ''
+      }
+    ]
   })
 
   useEffect(() => {
@@ -121,7 +86,10 @@ const PlaylistPage = () => {
         <Menu playlists={playlists.title} />
       </S.Menu>
       <S.Playlist>
-        <Playlist songs={songMock} playlistInfo={playlistSelected} />
+        <Playlist
+          songs={playlistSelected.songs}
+          playlistInfo={playlistSelected}
+        />
       </S.Playlist>
       <S.Player>
         {song ? (

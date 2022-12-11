@@ -1,11 +1,11 @@
 import * as S from './styles'
 
-export type SongsProps = {
+export type SongProps = {
   songName: string
-  singers: string[]
+  singers: string
   album: string
   addData: string
-  duration: string
+  duration: number
   number: number
   imgAlbum: string
 }
@@ -18,18 +18,14 @@ const Song = ({
   singers,
   number,
   imgAlbum
-}: PlaylistProps) => (
+}: SongProps) => (
   <S.Wrapper>
     <S.Number>{number}</S.Number>
     <S.Title>
       <S.Image src={imgAlbum} />
       <S.Song>
         <S.SongName>{songName}</S.SongName>
-        <S.SingerContent>
-          {singers.map((resp) => {
-            return <S.Singers key={resp}>{resp} |</S.Singers>
-          })}
-        </S.SingerContent>
+        <S.Singers>{singers}</S.Singers>
       </S.Song>
     </S.Title>
     <S.Album>{album}</S.Album>

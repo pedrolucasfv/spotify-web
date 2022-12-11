@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   //tenta fazer a conexão com a API utilizando os tokens
-  const MY_PLAYLISTS_ENDPOINT = `https://api.spotify.com/v1/playlists/45J9ISXkZvHVP1lOvVXJyj`
+  const MY_PLAYLISTS_ENDPOINT = `https://api.spotify.com/v1/playlists/6no74zDq0CQXWbnBYXwGTy`
   const response = await getPlaylist(MY_PLAYLISTS_ENDPOINT)
   console.log(`response playlist: ${response.status}`)
 
@@ -27,12 +27,26 @@ export default async function handler(
   const creator = playlist.owner.display_name
   const likes = playlist.followers.total
 
+  const songs = playlist.tracks.items.map((_tracks) => {
+    const song = {
+      songName: _tracks.track.name,
+      singers: _tracks.track.artists.map((_artist) => _artist.name).join(', '),
+      album: _tracks.track.album.name,
+      addData: _tracks.added_at,
+      duration: _tracks.track.duration_ms,
+      number: _tracks.track.track_number,
+      imgAlbum: _tracks.track.album.images[0].url
+    }
+    return song
+  })
+  console.log(songs)
   //retorna a variavel
   return res.status(200).json({
     name,
     img,
     creator,
     songNumber,
-    likes
+    likes,
+    songs
   })
 }

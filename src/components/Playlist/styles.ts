@@ -2,9 +2,15 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.main`
   font-size: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-image: linear-gradient(
+    to bottom,
+    #60bc74,
+    #488e57,
+    #31623c,
+    #1c3a22,
+    #041606
+  );
   color: white;
-  height: 100%;
 `
 
 export const Number = styled.div`
@@ -41,3 +47,16 @@ export const Header = styled.div`
 `
 
 export const Duration = styled.div``
+
+export const Musics = styled.div`
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 1)
+  );
+  height: 40rem;
+  overflow: scroll;
+`

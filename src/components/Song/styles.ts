@@ -34,9 +34,6 @@ export const Image = styled.div<ImageProps>`
 export const SongName = styled.div`
   font-size: 1.7rem;
 `
-export const SingerContent = styled.div`
-  display: flex;
-`
 export const Singers = styled.div`
   margin-right: 0.5rem;
   font-size: 1.1rem;

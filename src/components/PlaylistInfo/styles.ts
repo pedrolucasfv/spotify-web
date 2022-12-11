@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
-  background-color: rgb(65, 65, 65);
   color: white;
   display: flex;
-
   padding: 3rem;
 `
 
