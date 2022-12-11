@@ -6,7 +6,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   //tenta fazer a conexão com a API utilizando os tokens
-  const response = await getUserPlaylists()
+  const MY_PLAYLISTS_ENDPOINT = 'https://api.spotify.com/v1/me/playlists'
+  const response = await getUserPlaylists(MY_PLAYLISTS_ENDPOINT)
   console.log(`response user-playlist: ${response.status}`)
 
   if (response.status > 400) {
@@ -20,10 +21,13 @@ export default async function handler(
       .json({ title: 'NÃO TEM COMO NÃO TER PLAYLIST SPOTIFYYYYYY' })
   }
   //guardando o nome da playlist numa variável
-  const title = playlist.items[0].name
-  console.log(title)
+  const title = playlist.items.map((_playlist) => _playlist.name)
+  const id = playlist.items.map((_playlist) => _playlist.id)
+
+  console.log(id)
   //retorna a variavel
   return res.status(200).json({
-    title
+    title,
+    id
   })
 }

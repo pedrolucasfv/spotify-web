@@ -40,7 +40,7 @@ const Menu = ({ playlists }: MenuProps) => (
     </S.MusicLiked>
     <S.Playlists>
       {playlists.map((resp) => {
-        return <S.TextPlaylist>{resp}</S.TextPlaylist>
+        return <S.TextPlaylist key={resp}>{resp}</S.TextPlaylist>
       })}
     </S.Playlists>
   </S.Wrapper>

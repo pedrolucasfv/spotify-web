@@ -115,7 +115,9 @@ export const IconCreatePlaylist = styled.div`
 export const Playlists = styled.div`
   border-top: 0.1rem solid gray;
   color: darkgray;
+  height: 27rem;
   margin-top: 1rem;
+  overflow-y: scroll;
 `
 export const TextPlaylist = styled.h2`
   font-weight: 400;

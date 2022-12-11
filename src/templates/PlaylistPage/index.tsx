@@ -14,7 +14,8 @@ type NowPlayingSong = {
 }
 
 type PlaylistTypes = {
-  title: string
+  title: string[]
+  id: string[]
 }
 
 const PlaylistPage = () => {
@@ -69,7 +70,9 @@ const PlaylistPage = () => {
   //FUNÇÃO PARA TENTAR COLOCAR AS PLAYLISTS NO MENU
 
   const [song, setSong] = useState<NowPlayingSong>()
-  const [playlists, setPlaylists] = useState<PlaylistTypes>()
+  const [playlists, setPlaylists] = useState<PlaylistTypes>({
+    title: ['', '']
+  })
 
   useEffect(() => {
     async function getData() {
@@ -93,15 +96,8 @@ const PlaylistPage = () => {
   return (
     <S.Wrapper>
       <S.Menu>
-        <Menu
-          playlists={[
-            'raça negra',
-            'playlist para estudar',
-            'músicas para socorro'
-          ]}
-        />
+        <Menu playlists={playlists.title} />
       </S.Menu>
-      {playlists}
       <S.Playlist>
         <Playlist songs={songMock} />
       </S.Playlist>

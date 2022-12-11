@@ -5,7 +5,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const response = await getNowPlaying()
+  const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
+  const response = await getNowPlaying(NOW_PLAYING_ENDPOINT)
   console.log(`response now-playing: ${response.status}`)
   if (response.status == 204 || response.status > 400) {
     return res.status(200).json({ isPlaying: false })

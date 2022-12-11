@@ -1,5 +1,5 @@
 import { URLSearchParams } from 'url'
-
+//variaveis para ter conseguir o access token para conectar a API
 const client_id = process.env.SPOTIFY_CLIENT_ID
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN
@@ -11,12 +11,8 @@ const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
 
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token'
 
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`
-
 const START_ENDPOINT = `https://api.spotify.com/v1/me/player/play`
 const PAUSE_ENDPOINT = `https://api.spotify.com/v1/me/player/pause`
-const USER_PLAYLISTS_ENDPOINT =
-  'https://api.spotify.com/v1/users/user_id/playlists'
 
 const getAcessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -33,18 +29,18 @@ const getAcessToken = async () => {
   return response.json()
 }
 
-export const getNowPlaying = async () => {
+export const getNowPlaying = async (endpoint) => {
   const { access_token } = await getAcessToken()
-  return fetch(NOW_PLAYING_ENDPOINT, {
+  return fetch(endpoint, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }
   })
 }
 
-export const getUserPlaylists = async () => {
+export const getUserPlaylists = async (endpoint) => {
   const { access_token } = await getAcessToken()
-  return fetch(USER_PLAYLISTS_ENDPOINT, {
+  return fetch(endpoint, {
     headers: {
       Authorization: `Bearer ${access_token}`
     }
@@ -68,4 +64,3 @@ export const setPause = async () => {
     }
   })
 }
-
