@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   //tenta fazer a conexão com a API utilizando os tokens
-  const MY_PLAYLISTS_ENDPOINT = `https://api.spotify.com/v1/playlists/6no74zDq0CQXWbnBYXwGTy`
+  const MY_PLAYLISTS_ENDPOINT = `https://api.spotify.com/v1/playlists/4zaDIAq6hdBkkp59HZeNOW`
   const response = await getPlaylist(MY_PLAYLISTS_ENDPOINT)
   console.log(`response playlist: ${response.status}`)
 
@@ -39,7 +39,7 @@ export default async function handler(
     }
     return song
   })
-  console.log(songs)
+
   //retorna a variavel
   return res.status(200).json({
     name,

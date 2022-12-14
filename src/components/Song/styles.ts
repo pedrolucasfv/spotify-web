@@ -5,6 +5,7 @@ export const Wrapper = styled.main`
   align-items: center;
   justify-content: space-between;
   font-size: 1.5rem;
+  margin: 0rem 3rem;
 `
 
 export const Number = styled.div`

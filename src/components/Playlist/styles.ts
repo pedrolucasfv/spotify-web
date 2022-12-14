@@ -42,8 +42,8 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.1rem gray solid;
-  margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  margin: 1rem 3rem;
 `
 
 export const Duration = styled.div``
@@ -57,6 +57,7 @@ export const Musics = styled.div`
     rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 1)
   );
+
   height: 40rem;
   overflow: scroll;
 `
