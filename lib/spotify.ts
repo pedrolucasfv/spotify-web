@@ -44,8 +44,6 @@ export const getUserPlaylists = async (endpoint) => {
   })
 }
 
-
-
 export const getPlaylist = async (endpoint) => {
   const { access_token } = await getAcessToken()
   return fetch(endpoint, {
