@@ -9,7 +9,7 @@ This project use a boilerplate of a course called [React Avançado](https://reac
 ### Notion
 I have decided to create a "notion" for each project I do, in order to have a record and details of projects.
 
-Notion RPS-Game: https://pedrolucasfv.notion.site/Spotify-Web-Page-b7a11fc3d7b640c1bb216ed475ec09ab
+Notion: https://pedrolucasfv.notion.site/Spotify-Web-Page-b7a11fc3d7b640c1bb216ed475ec09ab
 
 ## What is inside?
 
@@ -18,8 +18,6 @@ This project uses lot of stuff as:
 - [TypeScript](https://www.typescriptlang.org/)
 - [NextJS](https://nextjs.org/)
 - [Styled Components](https://styled-components.com/)
-- [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 - [Storybook](https://storybook.js.org/)
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
@@ -27,9 +25,9 @@ This project uses lot of stuff as:
 
 ## Screenshots
 
-### Desktop:
-
-
+<p align="center">
+    <img width= "351px" height="181px" src="/public/img/spotify.jpg">
+</p>
 
 ## Getting Started
 
@@ -51,8 +49,6 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - `build`: creates the production build version
 - `start`: starts a simple server with the build production code
 - `lint`: runs the linter in all components and pages
-- `test`: runs jest to test all components and pages
-- `test:watch`: runs jest in watch mode
 - `storybook`: runs storybook on `localhost:6006`
 - `build-storybook`: create the build version of storybook
 
