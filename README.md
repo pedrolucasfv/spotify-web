@@ -26,7 +26,7 @@ This project uses lot of stuff as:
 ## Screenshots
 
 <p align="center">
-    <img width= "351px" height="181px" src="/public/img/spotify.jpg">
+    <img width= "702px" height="362px" src="/public/img/spotify.jpg">
 </p>
 
 ## Getting Started
